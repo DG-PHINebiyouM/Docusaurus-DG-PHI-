@@ -24,7 +24,7 @@ npm run docusaurus build
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-## Serving Statically for searchbar functionality
+## Serving Statically for Searchbar functionality
 
 ```bash
 npm run docusaurus serve
