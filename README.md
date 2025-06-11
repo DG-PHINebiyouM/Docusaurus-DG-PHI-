@@ -19,11 +19,13 @@ This command starts a local development server and opens up a browser window. Mo
 ## Build
 
 ```bash
-npm run docusaurus build```
+npm run docusaurus build
+```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
 ## Serving Statically for searchbar functionality
 
 ```bash
-npm run docusaurus serve```
+npm run docusaurus serve
+```
