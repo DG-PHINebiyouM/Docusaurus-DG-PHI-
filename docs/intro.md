@@ -10,7 +10,9 @@ Let's discover **BW Design Group Philly Branch**.
 
 Let's **try Ignition Training immediately** with **[Inductive University](https://inductiveuniversity.com/courses/ignition/ignition-overview/8.1)**.
 
+Used to start **Development Server**
+
 ```bash
-npm init docusaurus@latest my-website classic
+npx docusaurus start
 ```
 

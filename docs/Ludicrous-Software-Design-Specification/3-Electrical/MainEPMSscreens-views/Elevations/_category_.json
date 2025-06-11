@@ -1,0 +1,8 @@
+{
+  "label": "3.2.3 Elevations",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "An alternative to the Onelines views is the Elevation views. These views are physical representations of the Power Distribution Center (PDC) skids and Master Switchboard (MSB) skids and show the physical location of the equipment and devices on each skid. The energization status of the wired connections within the skid are also shown in these views. "
+  }
+}

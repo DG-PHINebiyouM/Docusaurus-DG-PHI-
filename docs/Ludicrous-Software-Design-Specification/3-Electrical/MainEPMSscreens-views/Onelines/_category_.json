@@ -1,0 +1,8 @@
+{
+  "label": "3.2.2 Onelines",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "The primary EPMS views are animated Onelines (AKA Single-Line Diagrams). These views are logical (as opposed to physical/geographical) representations of the facility's power distribution infrastructure and show the energization status of the wired connections between different equipment centers and devices. "
+  }
+}
