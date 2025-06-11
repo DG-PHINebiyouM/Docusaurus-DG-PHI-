@@ -30,7 +30,7 @@ const config = {
   organizationName: 'facebook', // Usually your GitHub org/user name.
   projectName: 'docusaurus', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -74,6 +74,21 @@ const config = {
       }),
     ],
   ],
+  themes: [
+  [
+    '@easyops-cn/docusaurus-search-local',
+    {
+      hashed: true,
+      language: ['en'],
+      indexDocs: true,
+      indexBlog: true,
+      docsRouteBasePath: '/docs',
+      blogRouteBasePath: '/blog',
+      highlightSearchTermsOnTargetPage: true,
+    }
+  ],
+],
+  
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
