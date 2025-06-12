@@ -26,6 +26,11 @@ This command generates static content into the `build` directory and can be serv
 
 ## Serving Static Files for Searchbar functionality
 
+**1. First**
+```bash
+npm run docusaurus build
+```
+**2. Second**
 ```bash
 npm run docusaurus serve
 ```
