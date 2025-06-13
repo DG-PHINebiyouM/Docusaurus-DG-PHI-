@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
-import Clogo from '../../../static/img/BWClearLogo.png'
 
 
 const FeatureList = [

@@ -4,6 +4,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
+
+//Useful Script gets each transcript from each subcategory and organizes it under said subcategory and turns it into markdown file
 // Get the directory of the current script
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

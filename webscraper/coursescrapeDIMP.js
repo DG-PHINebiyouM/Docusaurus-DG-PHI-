@@ -1,5 +1,8 @@
 import puppeteer from "puppeteer"
 
+
+
+//Useful Script gets subcategories
 export const getSubLinks = async () => {
   const browser = await puppeteer.launch({
     headless: false,

@@ -3,7 +3,7 @@ import {getSubLinks} from "./coursescrapeDIMP.js"
 import {getTranscript} from "./getScript-secondit.js"
 
 
-
+//Final build Useful script
 function randomDelay(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min) * 1000;
 }
