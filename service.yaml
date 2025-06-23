@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: docusaurus-service
+spec:
+  type: NodePort  # or LoadBalancer that uses round-robin
+  selector:
+    app: docusaurus  # Must match your deployment's labels
+  ports:
+    - port: 3000
+      targetPort: 3000
+      nodePort: 30000  # Optional: specify external port

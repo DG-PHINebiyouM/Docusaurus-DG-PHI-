@@ -11,7 +11,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'BW DG-PHI Documentation',
-  tagline: 'Directors: Steve Chapman, Tsuyoshi Kuroki',
+  tagline: 'Director: Tsuyoshi Kuroki',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
