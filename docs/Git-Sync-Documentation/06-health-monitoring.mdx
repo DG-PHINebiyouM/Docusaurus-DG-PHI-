@@ -1,0 +1,114 @@
+
+# Health Monitoring and Observability
+
+## Overview
+
+Git Sync provides robust health monitoring capabilities to track system status, sync performance, and repository health.
+
+## Health Endpoints
+
+### Available Endpoints
+
+1. `/health`
+   - Overall system health status
+   - Detailed sync state for each repository
+
+2. `/readiness`
+   - Indicates if the application is ready to receive traffic
+
+3. `/liveness`
+   - Confirms the application is running
+
+4. `/metrics`
+   - Detailed performance and status metrics
+
+## Health Status Types
+
+```go
+type Status int32
+
+const (
+    StatusStarting Status = iota
+    StatusHealthy
+    StatusUnhealthy
+    StatusUnknown
+)
+Sync State Tracking
+Each repository's sync state is comprehensively tracked:
+
+go
+Copy code
+type SyncState struct {
+    Repo          string
+    Branch        string
+    LastSync      time.Time
+    LastError     string
+    Status        string
+    SyncCount     int64
+    ErrorCount    int64
+    PendingBranch string
+}
+Health Response Example
+json
+Copy code
+{
+    "status": "healthy",
+    "timestamp": "2023-06-15T10:30:45Z",
+    "uptime": "2h34m",
+    "syncStates": {
+        "https://github.com/org/repo1:main": {
+            "status": "healthy",
+            "lastSync": "2023-06-15T10:30:00Z",
+            "syncCount": 42
+        }
+    }
+}
+Monitoring Strategies
+Periodic Health Checks
+Automatic internal health assessments
+Configurable check intervals
+Immediate status updates
+Sync Performance Tracking
+Track sync duration
+Monitor error rates
+Identify slow or problematic repositories
+Configuration Options
+yaml
+Copy code
+health_monitoring:
+  enabled: true
+  check_interval: 30s
+  detailed_metrics: true
+Key Metrics Tracked
+Total sync operations
+Successful vs. failed syncs
+Average sync duration
+Repository-specific error rates
+Integration Considerations
+Tip 💡
+
+Use health endpoints with monitoring systems
+Set up alerts for unhealthy states
+Integrate with Prometheus, Grafana, etc.
+Advanced Monitoring
+Custom health check hooks
+External monitoring agent support
+Webhook notifications for status changes
+Debugging and Troubleshooting
+Detailed sync logs
+Configurable log verbosity
+Error context preservation
+Warning ⚠️
+
+Ensure secure access to health endpoints
+Use authentication and network restrictions
+
+vbnet
+Copy code
+
+These MDX files follow the previous formatting:
+- No imports
+- Markdown blockquotes for callouts
+- Code blocks for code snippets
+- Comprehensive explanations of error handling and health monitoring
+

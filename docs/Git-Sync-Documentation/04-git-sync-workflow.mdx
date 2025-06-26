@@ -1,0 +1,83 @@
+# Sync Workflow
+
+## Synchronization Process
+
+Git Sync follows a comprehensive workflow to ensure reliable file synchronization:
+
+[Repository Cloning]
+↓
+[Sparse Checkout]
+↓
+[Check for Local Changes]
+↓
+[Commit Local Changes]
+↓
+[Push to Push Branch]
+↓
+[Pull Remote Changes]
+↓
+[Update Symlinks]
+↓
+[Health Monitoring]
+
+csharp
+Copy code
+
+## Detailed Workflow Steps
+
+### 1. Repository Cloning
+
+- Clones specified repository
+- Uses sparse checkout for efficiency
+- Supports authentication via GitHub App
+
+```go
+func (w *WorkingRepo) Clone(ctx context.Context) error {
+  // Efficient repository cloning
+  // Supports sparse checkout of specific files/directories
+}
+2. Sparse Checkout
+Selectively checkout only required files
+Reduces disk space and sync time
+Configurable via destination paths
+yaml
+Copy code
+destinations:
+- target: ./config/app.yaml
+  source: configs/production.yaml
+3. Local Changes Detection
+Checks for modifications in working directory:
+
+go
+Copy code
+func (w *WorkingRepo) GetChangedFiles(ctx context.Context) ([]string, error) {
+  // Identifies modified files
+  // Supports various change detection strategies
+}
+4. Commit and Push Workflow
+Automatic or manual commit options
+Supports push to separate branch
+Configurable commit messages
+go
+Copy code
+func (w *WorkingRepo) CommitAndPushToBranch(ctx context.Context, branch, message string) error {
+  // Commits changes
+  // Pushes to specified branch
+}
+5. Symlink Management
+Creates symlinks for synchronized files
+Supports conflict resolution strategies
+Ensures consistent file distribution
+go
+Copy code
+func (m *SymlinkManager) CreateSymlink(repo Repository, destination Destination) error {
+  // Creates symlinks with conflict handling
+}
+Sync Modes
+Continuous Sync
+Runs periodically based on sync_interval
+Constantly monitors and synchronizes repositories
+One-Time Sync
+Performs single synchronization
+Useful for immediate, one-off updates
+Info: 🔄 Sync modes provide flexibility for different use cases " 

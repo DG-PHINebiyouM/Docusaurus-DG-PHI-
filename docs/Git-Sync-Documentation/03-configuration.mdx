@@ -1,0 +1,45 @@
+# Configuration Guide
+
+## Configuration File Structure
+
+Git Sync uses YAML configuration with powerful templating capabilities:
+
+```yaml
+# Basic Configuration Example
+repo_url: &repo_url https://github.com/your-org/config-repo.git
+
+# Shared authentication can be defined once
+shared_auth: &github_auth
+  app_id: {{ .Env.GITHUB_APP_ID }}
+  installation_id: {{ .Env.GITHUB_INSTALLATION_ID }}
+  private_key_path: {{ .Env.GITHUB_PRIVATE_KEY_PATH }}
+
+# Commit author defaults
+commit_author: &default_author
+  name: GitSync Bot
+  email: gitsync@example.com
+
+# Sync configurations
+syncs:
+- repo: *repo_url
+  branch: main
+  push_branch: auto-sync-changes
+  
+  # Authentication can reference shared config
+  auth: *github_auth
+  
+  # Override commit author if needed
+  commit_author: 
+    name: {{ .Env.USER }}
+    email: {{ .Env.USER }}@example.com
+  
+  # Sync interval and conflict strategy
+  sync_interval: 30s
+  conflict_strategy: remote_wins
+  
+  # Destinations define what gets synced
+  destinations:
+  - target: ./config/app.yaml
+    source: configs/production.yaml
+  - target: ./config/secrets
+    source: secrets

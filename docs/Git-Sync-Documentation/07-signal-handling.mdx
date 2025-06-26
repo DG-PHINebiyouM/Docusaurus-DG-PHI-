@@ -1,0 +1,103 @@
+# Signal Handling in Git Sync
+
+## Overview of Signal Management
+
+Git Sync provides robust signal handling to manage application lifecycle and control synchronization processes.
+
+## Supported Signals
+
+### Shutdown Signals
+- `SIGTERM`: Graceful shutdown
+- `SIGINT`: Interrupt (Ctrl+C)
+
+### Operational Signals
+- `SIGHUP`: Reload/Immediate Sync
+- `SIGUSR1`: Status Dump
+- `SIGUSR2`: Debug Toggle
+
+## Signal Handling Workflow
+
+[Signal Received]
+↓
+[Identify Signal Type]
+↓
+[Execute Corresponding Action]
+↓
+[Graceful Application Response]
+
+csharp
+Copy code
+
+## Signal Types and Behaviors
+
+### 1. Shutdown Signals (`SIGTERM`, `SIGINT`)
+
+- Initiates graceful application shutdown
+- Stops ongoing sync operations
+- Closes open repositories
+- Releases system resources
+
+```go
+func (sp *SignalProcessor) handleShutdownSignal() {
+    // Gracefully stop all sync operations
+    // Close repositories
+    // Release resources
+}
+2. Reload Signal (SIGHUP)
+Triggers immediate synchronization
+Reloads configuration
+Refreshes all repository states
+go
+Copy code
+func (sp *SignalProcessor) handleReloadSignal() {
+    // Reload configuration
+    // Trigger immediate sync for all repositories
+}
+3. Status Signal (SIGUSR1)
+Dumps current system status
+Provides detailed sync state
+Logs repository health information
+go
+Copy code
+func (sp *SignalProcessor) dumpStatusInformation() {
+    // Generate comprehensive status report
+    // Log health and sync states
+}
+4. Debug Signal (SIGUSR2)
+Toggles debug logging
+Increases log verbosity
+Helps in troubleshooting
+go
+Copy code
+func (sp *SignalProcessor) toggleDebugMode() {
+    // Switch logging level
+    // Enable/disable detailed logging
+}
+Configuration Options
+yaml
+Copy code
+signals:
+  shutdown:
+    timeout: 30s
+  reload:
+    immediate_sync: true
+  debug:
+    enabled: false
+Best Practices
+Tip 💡
+
+Use signals for runtime control
+Implement proper timeout mechanisms
+Log signal handling activities
+Test signal responses thoroughly
+Error Handling in Signal Processing
+Catch and log signal processing errors
+Prevent signal handling from breaking application
+Provide fallback mechanisms
+Warning ⚠️
+
+Improper signal handling can lead to:
+
+Incomplete shutdowns
+Resource leaks
+Synchronization inconsistencies

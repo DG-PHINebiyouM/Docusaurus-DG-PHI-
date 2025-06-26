@@ -1,0 +1,51 @@
+# Core Components
+
+## Core Components
+
+### 1. Configuration Loader
+- Parses YAML configuration files
+- Supports Go template processing
+- Validates configuration parameters
+
+### 2. Sync Manager
+- Manages synchronization of multiple repositories
+- Handles cloning, pulling, and file synchronization
+- Supports sparse checkout for efficient syncing
+
+### 3. Symlink Manager
+- Creates and manages symlinks
+- Handles conflict resolution strategies
+- Ensures file synchronization across repositories
+
+### 4. Recovery Mechanisms
+- Implements retry and circuit breaker patterns
+- Provides advanced error handling
+- Supports multiple recovery strategies
+
+### 5. Health Monitoring
+- Provides health check endpoints
+- Tracks sync status for each repository
+- Exposes metrics and current system state
+
+**Info** 💡 
+The architecture is designed to be:
+> - Modular
+> - Extensible
+> - Resilient
+> - Configurable
+
+
+## Extensibility
+
+Each component is designed with interfaces that allow for:
+- Custom authentication providers
+- Different sync strategies
+- Pluggable recovery mechanisms
+
+```yaml
+# Example of extensibility
+syncs:
+- repo: https://github.com/custom-repo.git
+  auth:
+    # Custom authentication configuration
+  sync_strategy: custom_strategy

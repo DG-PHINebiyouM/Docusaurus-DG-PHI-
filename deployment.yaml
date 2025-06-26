@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docusaurus-deployment
+spec:
+  replicas: 6  # Number of pods distributed across all nodes
+  selector:
+    matchLabels:
+      app: docusaurus
+  template:
+    metadata:
+      labels:
+        app: docusaurus
+    spec:
+      containers:
+      - name: docusaurus
+        image: dgphimonty/docusaurus-dg-phi:v2
+        ports:
+        - containerPort: 3000

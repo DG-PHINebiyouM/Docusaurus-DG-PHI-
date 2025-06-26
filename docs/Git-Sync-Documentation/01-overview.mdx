@@ -1,0 +1,53 @@
+# Git Sync Overview
+
+## What is Git Sync?
+
+Git Sync is a powerful CLI tool designed to synchronize files and directories across multiple repositories with advanced features like:
+
+- Automatic file synchronization
+- Configurable sync intervals
+- GitHub App authentication
+- Symlink-based file management
+- Robust error handling and recovery
+
+> **Info** 💡
+> 
+> Git Sync is particularly useful for:
+> - Keeping configuration files in sync across multiple repositories
+> - Maintaining consistent configurations across different environments
+> - Automated file distribution and management
+
+## Key Features
+
+- **Flexible Configuration**: Use YAML-based configuration with Go template support
+- **Multiple Repository Support**: Sync files from multiple repositories simultaneously
+- **Authentication**: Secure GitHub App authentication
+- **Health Monitoring**: Built-in health check and monitoring endpoints
+- **Resilient Sync Mechanism**: Advanced error recovery and retry strategies
+
+## Use Cases
+
+1. **Configuration Management**
+   - Sync configuration files across development, staging, and production environments
+   - Centralize configuration management
+
+2. **Cross-Repository Synchronization**
+   - Keep shared resources in sync across different repositories
+   - Automate file distribution
+
+3. **Infrastructure as Code**
+   - Maintain consistent infrastructure configurations
+   - Automate updates across multiple projects
+
+## Quick Example
+
+```yaml
+# Example configuration
+syncs:
+- repo: https://github.com/your-org/config-repo.git
+  branch: main
+  push_branch: sync-configs
+  sync_interval: 30s
+  destinations:
+  - target: ./app/config/production.yaml
+    source: configs/production.yaml
